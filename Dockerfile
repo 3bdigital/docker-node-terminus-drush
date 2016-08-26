@@ -38,6 +38,9 @@ RUN curl https://github.com/pantheon-systems/terminus/releases/download/0.11.2/t
 RUN php -r "readfile('http://files.drush.org/drush.phar');" > drush \
     && chmod +x drush \
     && mv drush /usr/local/bin
+    
+# git and zip
+RUN apt-get update && apt-get install -y git zip
 
 WORKDIR /usr/src/app
 CMD npm install & npm start
